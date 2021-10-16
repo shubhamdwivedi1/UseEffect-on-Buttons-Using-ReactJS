@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
+import './index.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const [num, updatedNum] = useState(0);
+  const [nums, updatedNums] = useState(0);
+
+  useEffect(
+    () => {
+      alert("Welcome to CountDown Game!!!!");
+      console.log("i am clicked");
+    },[num]
   );
-}
+  return (
+    <>
+      <button onClick={
+        () => {
+          updatedNum(num + 1)
+        }
+      }>CountDown {num}</button>
 
-export default App;
+      <button onClick={
+        () => {
+          updatedNums(nums + 1)
+        }
+      }>CountDown {nums}</button>
+    </>
+  )
+};
+
+export default App
